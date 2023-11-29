@@ -45,28 +45,23 @@
     const incrementButton = document.getElementById('incrementButton');
     const reductionButton = document.getElementById('reductionButton');
 
-    //localStorage.setItem("counter", 0);
-
     let counterValue = Number(localStorage.getItem("counter"));
     counterDisplay.textContent = localStorage.getItem('counter');
 
     console.log(counterValue);
 
     function addSubtract(add){
-        if(add!=true){
-            counterValue = counterValue - 370;
+        if(add){
+            counterValue = counterValue + 370;
         }
         else {
-            counterValue = counterValue + 370;
+            counterValue = counterValue - 370;
         }
 
         localStorage.setItem('counter', counterValue);
         counterDisplay.textContent = localStorage.getItem('counter');
         console.log(localStorage.getItem('counter'));
     }
-
-
-    //console.log(localStorage.getItem('counter'));
 
 
 </script>
