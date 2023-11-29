@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tromsø for Gaza</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="left">
+        <img src="reddbarna.png" alt="" />
+    </div>
+    
+    <div class="right">
+        <img src="neda.png" alt="" />
+        <img src="tromsotraildogs.png" alt="" /> 
+    </div>
+
+</header>
+
+<div id="counter-container">
+  <div>
+    <p>Vi har løpt</p>
+    <h1 id="counter">0</h1>
+    <p>høydemeter</p>
+    <p>for barna i Gaza</p>
+  </div>
+</div>
+
+<div id="controller-container">
+  <button id="reductionButton">-</button>
+  <button id="incrementButton">+</button>
+</div>
+
+<script>
+
+    const counterDisplay = document.getElementById('counter');
+    const incrementButton = document.getElementById('incrementButton');
+    const reductionButton = document.getElementById('reductionButton');
+
+    let counterValue = 0;
+
+   
+  incrementButton.addEventListener('click', () => {
+    counterValue = counterValue + 370;
+    localStorage.setItem('counter', counterValue);
+    counterDisplay.textContent = counterValue;
+  });
+
+  reductionButton.addEventListener('click', () => {
+    counterValue = counterValue - 370;
+    localStorage.setItem('counter', counterValue);
+    counterDisplay.textContent = counterValue;
+  });
+
+  console.log(localStorage.getItem('counter'));
+
+
+</script>
+
+</body>
+</html>
