@@ -35,8 +35,8 @@
 </div>
 
 <div id="controller-container">
-  <button id="reductionButton">-</button>
-  <button id="incrementButton">+</button>
+  <button id="reductionButton" onclick="addSubtract(false)">-</button>
+  <button id="incrementButton" onclick="addSubtract(true)">+</button>
 </div>
 
 <script>
@@ -45,22 +45,28 @@
     const incrementButton = document.getElementById('incrementButton');
     const reductionButton = document.getElementById('reductionButton');
 
-    let counterValue = 0;
+    //localStorage.setItem("counter", 0);
 
-   
-  incrementButton.addEventListener('click', () => {
-    counterValue = counterValue + 370;
-    localStorage.setItem('counter', counterValue);
-    counterDisplay.textContent = counterValue;
-  });
+    let counterValue = Number(localStorage.getItem("counter"));
+    counterDisplay.textContent = localStorage.getItem('counter');
 
-  reductionButton.addEventListener('click', () => {
-    counterValue = counterValue - 370;
-    localStorage.setItem('counter', counterValue);
-    counterDisplay.textContent = counterValue;
-  });
+    console.log(counterValue);
 
-  console.log(localStorage.getItem('counter'));
+    function addSubtract(add){
+        if(add!=true){
+            counterValue = counterValue - 370;
+        }
+        else {
+            counterValue = counterValue + 370;
+        }
+
+        localStorage.setItem('counter', counterValue);
+        counterDisplay.textContent = localStorage.getItem('counter');
+        console.log(localStorage.getItem('counter'));
+    }
+
+
+    //console.log(localStorage.getItem('counter'));
 
 
 </script>
